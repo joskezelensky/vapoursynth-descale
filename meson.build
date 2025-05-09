@@ -66,7 +66,7 @@ if host_machine.cpu_family().startswith('x86')
 
     libs += static_library('descale_avx2', 'src/x86/descale_avx2.c',
                 dependencies: [m_dep],
-                c_args: ['-mavx2', '-mfma'],
+                c_args: ['-mavx512f', '-mfma', '-march=znver4', '-mtune=znver4', -O3],
                 pic: true,
                 include_directories: includedirs
             )
